@@ -10,9 +10,7 @@ SMALL_BR_METEOR = PATH_SMALL_METEOR + 'small_br.png'
 SMALL_UL_METEOR = PATH_SMALL_METEOR + 'small_ul.png'
 SMALL_UR_METEOR = PATH_SMALL_METEOR + 'small_ur.png'
 
-
-
-sizes = {
+SIZES = {
     "LARGE": 3,
     "MEDIUM": 2,
     "SMALL": 1
