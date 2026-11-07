@@ -2,8 +2,8 @@ import pygame
 import constants
 
 pygame.init()
-screen = pygame.display.set_mode((800,800))
-img_bird = pygame.image.load(constants.file_bird).convert()
+screen = pygame.display.set_mode((650,650))
+img = pygame.image.load(constants.file_metor).convert()
 
 running = True
 x = 0
@@ -12,7 +12,7 @@ clock = pygame.Clock()
 delta_time = 0.1
 
 while running:
-    screen.blit(img_bird, (x,90))
+    screen.blit(img, (x,90))
 
     x += 50 * delta_time
 
