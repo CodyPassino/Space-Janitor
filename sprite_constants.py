@@ -1,5 +1,11 @@
 # Sprite paths
 PATH_SPRITE = "sprites/"
+
+    # Background
+PATH_BACKGROUND = PATH_SPRITE + "backgrounds/"
+
+BG_1 = PATH_BACKGROUND + "background_1.png"
+
     # Meteor
 PATH_METEOR = PATH_SPRITE + "meteor/"
         # Small
