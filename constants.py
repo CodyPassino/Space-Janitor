@@ -1,2 +1,2 @@
 import pygame
-img = pygame.image.load('image path and file here').convert()
+img = pygame.image.load('sprites/<insert file name>.png').convert()
