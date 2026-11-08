@@ -11,6 +11,10 @@ SPACE_X = {
     "PANEL_NUM": 8 
 }
 
+SPACE_Y = {
+    "STATION" : 1,
+    "PANEL_NUM": 8 
+}
 
 # Ship settings
 SHIP_TURN_SPEED = 20
