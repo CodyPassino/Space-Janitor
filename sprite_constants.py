@@ -4,7 +4,9 @@ PATH_SPRITE = "sprites/"
     # Background
 PATH_BACKGROUND = PATH_SPRITE + "backgrounds/"
 
-BG_1 = PATH_BACKGROUND + "background_1.png"
+#BG_1 = PATH_BACKGROUND + "background_1.png"
+# test bg
+BG_1 = PATH_BACKGROUND + "outline.png"
 
 #Debris 
 PATH_DEBRIS = PATH_SPRITE + "debris/"

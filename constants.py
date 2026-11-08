@@ -1,11 +1,14 @@
+import pygame
+
 # Display settings
 RESOLUTION = (1200, 800)
 DELTA_TIME = 0.1
 FPS = 60
 
-# Space
-space_x = {
-    "STATION" : 0,
+# Space panels
+SPACE_X = {
+    "STATION" : 1,
+    "PANEL_NUM": 8
 }
 
 

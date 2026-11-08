@@ -7,6 +7,7 @@ from ship import Ship
 class Display_Handler():
 
     def __init__(self):
+        pygame.init()
         self.screen = pygame.display.set_mode(constants.RESOLUTION)
         self.clock = pygame.Clock()
         self.ship = Ship()
@@ -15,7 +16,7 @@ class Display_Handler():
         self.scroll_y = 0
 
         # Init setup of player view
-        frame.setpos(self.screen, sprite_constants.BG_1, 0, 0)
+        frame.bg_loop(self, self.ship.dx, self.ship.dy) 
         self.display_hud()
         frame.render(self.clock)
 
@@ -46,8 +47,6 @@ class Display_Handler():
             self.screen.fill((255,0,0))
 
             frame.bg_loop(self, self.ship.dx, self.ship.dy) 
-            #frame.setpos(self.screen, sprite_constants.BG_1, self.ship.x, self.ship.y)
-
             self.display_hud() 
             frame.render(self.clock)        
 
