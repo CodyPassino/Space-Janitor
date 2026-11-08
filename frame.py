@@ -79,13 +79,12 @@ def bg_loop(display, d_x, d_y):
                         text = FONT.render(str(x_panel), True, (0, 255, 0))
                         display.screen.blit(text,(new_x + 600, new_y+ 600))
 
-                        #smooth_panel = 
-                        if x_panel % constants.SPACE_X["PANEL_NUM"] == constants.SPACE_X["STATION"] and y_panel % constants.SPACE_Y["PANEL_NUM"] == constants.SPACE_Y["STATION"]:
-                                setpos(display.screen, sprite_constants.STATION, new_x/constants.DELTA_TIME, new_y/constants.DELTA_TIME )
-                        
+                        smooth_panel_x = constants.SPACE_X["STATION"]
+                        smooth_panel_y = constants.SPACE_Y["STATION"]
 
-        
-                        
+                        if x_panel % constants.SPACE_X["PANEL_NUM"] == smooth_panel_x and y_panel % constants.SPACE_Y["PANEL_NUM"] == smooth_panel_y:
+                                setpos(display.screen, sprite_constants.STATION, new_x/constants.DELTA_TIME, new_y/constants.DELTA_TIME )
+                               
 
 def zoom(screen, obj):
         path = "temp"

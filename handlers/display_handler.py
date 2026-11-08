@@ -3,6 +3,7 @@ import constants
 import sprite_constants
 import pygame
 from ship import Ship
+from space_station import Space_Station
 
 class Display_Handler():
 
@@ -11,6 +12,8 @@ class Display_Handler():
         self.screen = pygame.display.set_mode(constants.RESOLUTION)
         self.clock = pygame.Clock()
         self.ship = Ship()
+        self.station = Space_Station([0,0,0])
+        self.view = [] # Holds obj in player view
 
         self.scroll_x = 0
         self.scroll_y = 0
@@ -51,11 +54,11 @@ class Display_Handler():
         if is_moving:
             #zoom
             if keys[pygame.K_SPACE]:
-                print("zooming")
+                for obj in self.view:
+                    pass
             
 
     def display_hud(self):
-
         frame.combine(self.screen, sprite_constants.MYHUD)
                
 
