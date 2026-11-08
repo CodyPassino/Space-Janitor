@@ -61,9 +61,6 @@ def bg_loop(display, d_x, d_y):
                  #station_y = up_bound
         
 
-        '''if abs(display.scroll_y) > bg_height:
-                display.scroll_y = left_bound'''
-
         
         FONT = pygame.font.Font(None, 36)
 

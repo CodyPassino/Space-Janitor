@@ -25,9 +25,10 @@ class Display_Handler():
         self.ship.dx = constants.STILL
 
         keys = pygame.key.get_pressed()
-        is_moving = keys[pygame.K_w] or keys[pygame.K_a] or keys[pygame.K_s] or keys[pygame.K_d]
-
-        if is_moving:
+        is_turning = keys[pygame.K_w] or keys[pygame.K_a] or keys[pygame.K_s] or keys[pygame.K_d]
+        is_moving = keys[pygame.K_SPACE]
+        
+        if is_turning:
 
             if keys[pygame.K_w]:
                 self.ship.dy = constants.UP
@@ -49,6 +50,12 @@ class Display_Handler():
             frame.bg_loop(self, self.ship.dx, self.ship.dy) 
             self.display_hud() 
             frame.render(self.clock)        
+
+        if is_moving:
+            #zoom
+            if keys[pygame.K_SPACE]:
+                print("zooming")
+            
 
     def display_hud(self):
 
