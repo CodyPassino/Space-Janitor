@@ -83,5 +83,15 @@ def bg_loop(display, d_x, d_y):
         
                         
 
-def zoom(path, pos, distance):
-        
+def zoom(obj):
+        path = "temp"
+
+        match obj.size:
+                case 1:
+                        path = sprite_constants.SMALL_BL_METEOR
+
+        img = pygame.image.load(path).convert()
+        new_width = img.get_width() * constants.SHIP_SPEED
+        new_height = img.get_height() * constants.SHIP_SPEED
+
+        zoomed = pygame.transform.scale(img, (new_width, new_height))
