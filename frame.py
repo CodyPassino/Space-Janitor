@@ -4,9 +4,14 @@ import math
 import sprite_constants
 
 def setpos(screen, sprite,x, y):
-        x = x 
-        y = y 
-        sprite_img = pygame.image.load(sprite).convert_alpha()
+        x = x * constants.DELTA_TIME
+        y = y * constants.DELTA_TIME
+
+        # Checks if already loaded or incoming zoomed img
+        if sprite != pygame.surface: # File path
+                sprite_img = pygame.image.load(sprite).convert_alpha()
+        else:
+                sprite_img = sprite
 
         screen.blit(sprite_img, (x, y))
 
@@ -73,14 +78,16 @@ def bg_loop(display, d_x, d_y):
 
                         text = FONT.render(str(x_panel), True, (0, 255, 0))
                         display.screen.blit(text,(new_x + 600, new_y+ 600))
-                        if x_panel % constants.SPACE_X["PANEL_NUM"] == constants.SPACE_X["STATION"] and y_panel % constants.SPACE_Y["PANEL_NUM"] == constants.SPACE_Y["STATION"] + 1:
-                                setpos(display.screen, sprite_constants.STATION, new_x, new_y )
+
+                        #smooth_panel = 
+                        if x_panel % constants.SPACE_X["PANEL_NUM"] == constants.SPACE_X["STATION"] and y_panel % constants.SPACE_Y["PANEL_NUM"] == constants.SPACE_Y["STATION"]:
+                                setpos(display.screen, sprite_constants.STATION, new_x/constants.DELTA_TIME, new_y/constants.DELTA_TIME )
                         
 
         
                         
 
-def zoom(obj):
+def zoom(screen, obj):
         path = "temp"
 
         match obj.size:
@@ -88,7 +95,8 @@ def zoom(obj):
                         path = sprite_constants.SMALL_BL_METEOR
 
         img = pygame.image.load(path).convert()
-        new_width = img.get_width() * constants.SHIP_SPEED
-        new_height = img.get_height() * constants.SHIP_SPEED
+        new_width = img.get_width() + (obj.pos[constants.POS["Z"]]* constants.SHIP_SPEED)
+        new_height = img.get_height() + (obj.pos[constants.POS["Z"]]* constants.SHIP_SPEED)
 
-        zoomed = pygame.transform.scale(img, (new_width, new_height))
+        zoomed_img = pygame.transform.scale(img, (new_width, new_height))
+        setpos(screen, zoomed_img, obj.pos[constants.POS["x"]], obj.pos[constants.POS["Y"]])
