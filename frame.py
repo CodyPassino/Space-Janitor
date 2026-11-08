@@ -2,7 +2,7 @@ import pygame
 import constants
 import math
 import sprite_constants
-import small_meteor
+
 
 def setpos(display, sprite,x, y):
         x = x * constants.DELTA_TIME
@@ -26,15 +26,24 @@ def combine(screen, sprite_location_d):
                 img = pygame.image.load(path).convert_alpha()
                 screen.blit(img, sprite_location_d[path])
 
-def bg_loop(display):
-
+def get_bg_panels():
         bg = pygame.image.load(sprite_constants.BG_1).convert()
         bg_width = bg.get_width()
         bg_height = bg.get_height()
+       
+        panels_x = math.ceil(constants.RESOLUTION[0]/bg_width) + constants.SPACE_X["PANEL_NUM"] 
+        panels_y = math.ceil(constants.RESOLUTION[1]/bg_height) + constants.SPACE_Y["PANEL_NUM"]
+
+        return bg, bg_width, bg_height, panels_x, panels_y
+
+def bg_loop(display):
+
+        bg, bg_width, bg_height, panels_x, panels_y = get_bg_panels()
 
         # plus one for smoothing loop
-        panels_x = math.ceil(constants.RESOLUTION[0]/bg_width) + constants.SPACE_X["PANEL_NUM"] + 1
-        panels_y = math.ceil(constants.RESOLUTION[1]/bg_height) + constants.SPACE_Y["PANEL_NUM"] + 1
+        panels_x += 1
+        panels_y += 1
+        
 
         display.scroll_x += constants.SHIP_TURN_SPEED * display.ship.dx
         display.scroll_y += constants.SHIP_TURN_SPEED * display.ship.dy
@@ -66,8 +75,6 @@ def bg_loop(display):
                  #station_y = up_bound
         
 
-        
-
         for x_panel in range(panels_x):
                 new_x = x_panel * bg_width + display.scroll_x - bg_width
                 for y_panel in (range(panels_y)):
@@ -87,7 +94,13 @@ def bg_loop(display):
                         elif display.station in display.view:
                                 # Not great but time rushed
                                 display.view.remove(display.station)
-                    
+
+                        if x_panel == constants.SPACE_X["FORCE_METEOR"]:
+                                pass
+
+                                #display.view.append(s_m)
+                                #zoom(display, s_m, space_down=False)
+                        
                                
 
 def zoom(display, obj, pos = tuple(), space_down = True):
@@ -113,3 +126,14 @@ def zoom(display, obj, pos = tuple(), space_down = True):
         zoomed_img = pygame.transform.scale(img, (new_width, new_height))
         
         setpos(display, zoomed_img, pos[constants.POS["X"]], pos[constants.POS["Y"]])
+
+def get_panel(obj):
+        bg, bg_width, bg_height, panels_x, panels_y = get_bg_panels()
+
+        my_x = obj.get_x()
+        my_y = obj.get_y()
+
+        
+        my_panel_x =  math.ceil(my_x/bg_width)
+        print(my_panel_x) 
+
