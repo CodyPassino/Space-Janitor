@@ -32,7 +32,6 @@ class Display_Handler():
             elif keys[pygame.K_d]:
                 self.ship.x += constants.SHIP_TURN_SPEED
         
-            y += 50
             self.display(sprite_constants.BG_1, self.ship.x, self.ship.y) 
                 
         
