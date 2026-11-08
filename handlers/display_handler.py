@@ -3,6 +3,7 @@ import constants
 import sprite_constants
 import pygame
 from ship import Ship
+
 class Display_Handler():
 
     def __init__(self):
@@ -10,10 +11,12 @@ class Display_Handler():
         self.clock = pygame.Clock()
         self.ship = Ship()
 
-    def display(self, sprite, x, y):
-        
-        self.screen.fill((255,0,0))
-        frame.move(self.screen, sprite, x, y)
+        self.scroll_x = 0
+        self.scroll_y = 0
+
+        frame.setpos(self.screen, sprite_constants.BG_1, 0, 0)
+        self.display_hud()
+        frame.render(self.clock)
 
     def keypressed(self):
         keys = pygame.key.get_pressed()
@@ -22,22 +25,40 @@ class Display_Handler():
         if is_moving:
 
             if keys[pygame.K_w]:
-                self.ship.y += constants.SHIP_TURN_SPEED
+                self.ship.dy = constants.UP
+            else:
+                self.ship.dy = constants.STILL
+
             if keys[pygame.K_s]:
-                self.ship.y -= constants.SHIP_TURN_SPEED
+                self.ship.dy = constants.DOWN
+           
             if keys[pygame.K_a]:
-                self.ship.x += constants.SHIP_TURN_SPEED
+                self.ship.dx = constants.LEFT
+            
             if keys[pygame.K_d]:
-                self.ship.x -= constants.SHIP_TURN_SPEED
-        
-            self.display(sprite_constants.BG_1, self.ship.x, self.ship.y)
-    
+                self.ship.dx = constants.RIGHT
+            
+
+            self.screen.fill((255,0,0))
+
+            frame.bg_loop(self, self.ship.dx, self.ship.dy) 
+            #frame.setpos(self.screen, sprite_constants.BG_1, self.ship.x, self.ship.y)
+
             self.display_hud() 
+            frame.render(self.clock)
+        
+        else:
+            self.ship.dx = 0
+            self.ship.dy = 0
+        
 
     def display_hud(self):
 
         frame.combine(self.screen, sprite_constants.MYHUD)
-        frame.render(self.clock)
+               
+
+        
+
                 
         
             
