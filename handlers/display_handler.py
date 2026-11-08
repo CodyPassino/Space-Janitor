@@ -19,7 +19,7 @@ class Display_Handler():
         self.scroll_y = 0
 
         # Init setup of player view
-        frame.bg_loop(self, self.ship.dx, self.ship.dy) 
+        frame.bg_loop(self) 
         self.display_hud()
         frame.render(self.clock)
 
@@ -46,17 +46,20 @@ class Display_Handler():
             
             if keys[pygame.K_d]:
                 self.ship.dx = constants.RIGHT
-            
-            frame.bg_loop(self, self.ship.dx, self.ship.dy) 
-            self.display_hud() 
-            frame.render(self.clock)        
+
+            frame.bg_loop(self)
 
         if is_moving:
             #zoom
             if keys[pygame.K_SPACE]:
                 for obj in self.view:
-                    pass
-            
+                    frame.zoom(self, obj)
+
+
+         
+        self.display_hud() 
+        frame.render(self.clock)        
+
 
     def display_hud(self):
         frame.combine(self.screen, sprite_constants.MYHUD)

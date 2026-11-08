@@ -8,12 +8,14 @@ FPS = 60
 # Space panels
 SPACE_X = {
     "STATION" : 1,
-    "PANEL_NUM": 8 
+    "PANEL_NUM": 8,
+    "FORCE_METEOR": 4
 }
 
 SPACE_Y = {
     "STATION" : 1,
-    "PANEL_NUM": 8 
+    "PANEL_NUM": 8,
+    "FORCE_METEOR": 4 
 }
 
 # Ship settings
