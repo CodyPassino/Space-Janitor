@@ -8,12 +8,12 @@ FPS = 60
 # Space panels
 SPACE_X = {
     "STATION" : 1,
-    "PANEL_NUM": 8
+    "PANEL_NUM": 8 
 }
 
 
 # Ship settings
-SHIP_TURN_SPEED = 10
+SHIP_TURN_SPEED = 20
 
 # Directions
 UP = 1
