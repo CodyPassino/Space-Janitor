@@ -1,10 +1,11 @@
 import frame
+import constants
 import sprite_constants
 import pygame
 class Display_Handler():
 
     def __init__(self):
-        self.screen = pygame.display.set_mode((640,640))
+        self.screen = pygame.display.set_mode(constants.RESOLUTION)
         self.clock = pygame.Clock()
         self.delta_time = 0.1
     

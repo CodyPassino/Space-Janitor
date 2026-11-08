@@ -1,9 +1,5 @@
-from handlers.display_handler  import Display_Handler
-import sprite_constants
-
+from handlers.input_handler import Input_Handler
 def main():
-    dh = Display_Handler()
-    dh.display(sprite_constants.BG_1)
-
+    input_handler = Input_Handler()
 if __name__ == '__main__':
     main()
