@@ -25,8 +25,8 @@ def bg_loop(display, d_x, d_y):
         bg_width = bg.get_width()
         bg_height = bg.get_height()
 
-        panels_x = math.ceil(constants.RESOLUTION[0]/bg_width) + 2
-        panels_y = math.ceil(constants.RESOLUTION[1]/bg_height) + 2
+        panels_x = math.ceil(constants.RESOLUTION[0]/bg_width) + 8
+        panels_y = math.ceil(constants.RESOLUTION[1]/bg_height) + 8
 
         display.scroll_x += constants.SHIP_TURN_SPEED * d_x
         display.scroll_y += constants.SHIP_TURN_SPEED * d_y
@@ -37,11 +37,27 @@ def bg_loop(display, d_x, d_y):
         if abs(display.scroll_y) > bg_height:
                 display.scroll_y = 0
 
-        for x_panel in (range(panels_x)):
+        for x_panel in range(panels_x):
                 new_x = x_panel * bg_width + display.scroll_x - bg_width
                 for y_panel in (range(panels_y)):
                         new_y = y_panel * bg_height + display.scroll_y - bg_height
                         display.screen.blit(bg,(new_x, new_y))
+                        if x_panel == constants.space_x["STATION"]:
+                                setpos(display.screen, sprite_constants.STATION,0,0)
+
+                        
+        
+
+
+
+        '''
+        for x_panel in (range(panels_x)):
+                        new_x = x_panel * bg_width + display.scroll_x - bg_width
+                        for y_panel in (range(panels_y)):
+                                new_y = y_panel * bg_height + display.scroll_y - bg_height
+                                display.screen.blit(bg,(new_x, new_y))
+        '''
+        
         
 
         

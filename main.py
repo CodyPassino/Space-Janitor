@@ -8,7 +8,6 @@ def main():
     running = True
     
     
-    
     while running:
 
         # checks for quit event

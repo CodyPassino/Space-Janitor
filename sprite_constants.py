@@ -19,7 +19,10 @@ SMALL_UL_METEOR = PATH_SMALL_METEOR + 'small_ul.png'
 SMALL_UR_METEOR = PATH_SMALL_METEOR + 'small_ur.png'
 
 
+# Station
+PATH_STATION = PATH_SPRITE + "space_stations/"
 
+STATION = PATH_STATION + "spaceStation_1.png"
 # HUD
 PATH_HUD = PATH_SPRITE + "HUD_elements/"
 
