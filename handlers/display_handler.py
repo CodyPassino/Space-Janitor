@@ -44,9 +44,6 @@ class Display_Handler():
             if keys[pygame.K_d]:
                 self.ship.dx = constants.RIGHT
             
-
-            self.screen.fill((255,0,0))
-
             frame.bg_loop(self, self.ship.dx, self.ship.dy) 
             self.display_hud() 
             frame.render(self.clock)        
