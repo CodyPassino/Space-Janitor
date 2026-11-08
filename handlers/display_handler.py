@@ -19,6 +19,9 @@ class Display_Handler():
         frame.render(self.clock)
 
     def keypressed(self):
+        self.ship.dy = constants.STILL
+        self.ship.dx = constants.STILL
+
         keys = pygame.key.get_pressed()
         is_moving = keys[pygame.K_w] or keys[pygame.K_a] or keys[pygame.K_s] or keys[pygame.K_d]
 
@@ -45,12 +48,7 @@ class Display_Handler():
             #frame.setpos(self.screen, sprite_constants.BG_1, self.ship.x, self.ship.y)
 
             self.display_hud() 
-            frame.render(self.clock)
-        
-        else:
-            self.ship.dx = 0
-            self.ship.dy = 0
-        
+            frame.render(self.clock)        
 
     def display_hud(self):
 
