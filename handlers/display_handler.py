@@ -14,6 +14,7 @@ class Display_Handler():
         self.scroll_x = 0
         self.scroll_y = 0
 
+        # Init setup of player view
         frame.setpos(self.screen, sprite_constants.BG_1, 0, 0)
         self.display_hud()
         frame.render(self.clock)
