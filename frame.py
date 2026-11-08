@@ -1,8 +1,8 @@
 import pygame
 
-class Frame():
-
-    pass
+def move(screen, sprite,x, y):
+        sprite_img = pygame.image.load(sprite).convert()
+        screen.blit(sprite_img, (x, y))
 
 
     

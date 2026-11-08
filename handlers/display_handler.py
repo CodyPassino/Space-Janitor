@@ -1,3 +1,4 @@
+import frame
 import sprite_constants
 import pygame
 class Display_Handler():
@@ -10,6 +11,7 @@ class Display_Handler():
 
     def display(self, sprite):
         running = True
+        x = 0
         y = 0
         while running:  
             for event in pygame.event.get():
@@ -17,7 +19,7 @@ class Display_Handler():
                     running = False
 
             self.screen.fill((0,0,0))
-            self.move(sprite, y*self.delta_time)
+            frame.move(self.screen, sprite, x *self.delta_time, y*self.delta_time)
 
             self.clock.tick(60)
             pygame.display.flip()
@@ -25,6 +27,4 @@ class Display_Handler():
             
         pygame.quit()
 
-    def move(self, sprite, y):
-        sprite_img = pygame.image.load(sprite).convert()
-        self.screen.blit(sprite_img, (0, y))
+    
