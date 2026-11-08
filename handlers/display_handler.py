@@ -22,8 +22,6 @@ class Display_Handler():
         is_moving = keys[pygame.K_w] or keys[pygame.K_a] or keys[pygame.K_s] or keys[pygame.K_d]
 
         if is_moving:
-            x = 0
-            y = 0
 
             if keys[pygame.K_w]:
                 self.ship.y += constants.SHIP_TURN_SPEED
