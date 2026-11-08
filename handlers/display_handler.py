@@ -2,30 +2,43 @@ import frame
 import constants
 import sprite_constants
 import pygame
+from ship import Ship
 class Display_Handler():
 
     def __init__(self):
         self.screen = pygame.display.set_mode(constants.RESOLUTION)
         self.clock = pygame.Clock()
-        self.delta_time = 0.1
-    
+        self.ship = Ship()
 
-    def display(self, sprite):
-        running = True
-        x = 0
-        y = 0
-        while running:  
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    running = False
+    def display(self, sprite, x, y):
+        
+        self.screen.fill((255,0,0))
+        frame.move(self.screen, sprite, x, y)
 
-            self.screen.fill((255,0,0))
-            frame.move(self.screen, sprite, x *self.delta_time, y*self.delta_time)
+        frame.render(self.clock)
 
-            self.clock.tick(60)
-            pygame.display.flip()
-            y += 5
+    def keypressed(self):
+        keys = pygame.key.get_pressed()
+        is_moving = keys[pygame.K_w] or keys[pygame.K_a] or keys[pygame.K_s] or keys[pygame.K_d]
+
+        if is_moving:
+            x = 0
+            y = 0
+
+            if keys[pygame.K_w]:
+                self.ship.y += constants.SHIP_TURN_SPEED
+            elif keys[pygame.K_s]:
+                self.ship.y -= constants.SHIP_TURN_SPEED
+            elif keys[pygame.K_a]:
+                self.ship.x -= constants.SHIP_TURN_SPEED
+            elif keys[pygame.K_d]:
+                self.ship.x += constants.SHIP_TURN_SPEED
+        
+            y += 50
+            self.display(sprite_constants.BG_1, self.ship.x, self.ship.y) 
+                
+        
             
-        pygame.quit()
+        
 
     
