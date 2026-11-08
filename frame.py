@@ -87,12 +87,7 @@ def bg_loop(display):
                         elif display.station in display.view:
                                 # Not great but time rushed
                                 display.view.remove(display.station)
-
-                        if x_panel == constants.SPACE_X["FORCE_METEOR"]:
-                                s_m = small_meteor([600,600, 0])
-                                display.view.append(s_m)
-                                zoom(display, s_m, space_down=False)
-                        
+                    
                                
 
 def zoom(display, obj, pos = tuple(), space_down = True):

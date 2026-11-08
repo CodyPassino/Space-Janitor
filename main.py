@@ -1,18 +1,24 @@
 from handlers.display_handler import Display_Handler
 import pygame
 
+from sprite_constants import TITLECARD
+
 def main():
     display = Display_Handler()
     running = True
-    
-    while running:
+    showing_titlecard = True
 
+    titlecard_img = pygame.image.load(TITLECARD).convert()
+    while running:
+        
         # checks for quit event
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
             elif event.type == pygame.KEYDOWN:
-                # Shortcut to quite - "q"
+                if showing_titlecard:
+                    showing_titlecard = False
+                # Shortcut to quit - "q"
                 if event.key == pygame.K_q:
                     running = False
 
