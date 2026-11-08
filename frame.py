@@ -11,6 +11,12 @@ def render(clock):
         clock.tick(60)
         pygame.display.flip()
 
+def combine(screen, sprite_location_d):
+        for path in sprite_location_d:
+                img = pygame.image.load(path).convert_alpha()
+                screen.blit(img, sprite_location_d[path])
+
+
 
     
     

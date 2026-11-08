@@ -15,8 +15,6 @@ class Display_Handler():
         self.screen.fill((255,0,0))
         frame.move(self.screen, sprite, x, y)
 
-        frame.render(self.clock)
-
     def keypressed(self):
         keys = pygame.key.get_pressed()
         is_moving = keys[pygame.K_w] or keys[pygame.K_a] or keys[pygame.K_s] or keys[pygame.K_d]
@@ -32,8 +30,14 @@ class Display_Handler():
             if keys[pygame.K_d]:
                 self.ship.x -= constants.SHIP_TURN_SPEED
         
-            self.display(sprite_constants.BG_1, self.ship.x, self.ship.y) 
+            self.display(sprite_constants.BG_1, self.ship.x, self.ship.y)
     
+            self.display_hud() 
+
+    def display_hud(self):
+
+        frame.combine(self.screen, sprite_constants.MYHUD)
+        frame.render(self.clock)
                 
         
             

@@ -16,6 +16,22 @@ SMALL_BR_METEOR = PATH_SMALL_METEOR + 'small_br.png'
 SMALL_UL_METEOR = PATH_SMALL_METEOR + 'small_ul.png'
 SMALL_UR_METEOR = PATH_SMALL_METEOR + 'small_ur.png'
 
+
+
+# HUD
+PATH_HUD = PATH_SPRITE + "HUD_elements/"
+
+HUD_CROSSHAIR = PATH_HUD + "crosshair.png"
+HUD_BOTTOM = PATH_HUD + "HUD_bottom.png"
+HUD_TOP = PATH_HUD + "HUD_top.png"
+
+MYHUD = {
+    HUD_CROSSHAIR: (0,0),
+    HUD_BOTTOM: (0,0),
+    HUD_TOP: (0,0)
+}
+
+
 SIZES = {
     "LARGE": 3,
     "MEDIUM": 2,

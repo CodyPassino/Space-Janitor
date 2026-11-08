@@ -6,15 +6,18 @@ def main():
     display = Display_Handler()
     running = True
     
+    
     display.display(sprite_constants.BG_1, 0, 0)
+    display.display_hud()
     while running:
+        
         # checks for quit event
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
             
         display.keypressed()
-
+        
             
 
     pygame.quit()
