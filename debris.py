@@ -1,13 +1,13 @@
-class Debris():
+from in_space import In_Space
 
+class Debris(In_Space):
 
-    def __init__(self, obj, pos ):
+    def __init__(self, pos ):
         self.pos = pos
         
 
     def split():
         pass
-
     
 
 

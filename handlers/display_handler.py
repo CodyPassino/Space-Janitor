@@ -2,6 +2,8 @@ import frame
 import constants
 import sprite_constants
 import pygame
+from small_meteor import Small_Meteor
+
 from ship import Ship
 from space_station import Space_Station
 
@@ -12,6 +14,7 @@ class Display_Handler():
         self.screen = pygame.display.set_mode(constants.RESOLUTION)
         self.clock = pygame.Clock()
         self.ship = Ship()
+        self.meteor = Small_Meteor([850,0])
         self.station = Space_Station([0,0,0])
         self.view = [] # Holds obj in player view
 
@@ -58,7 +61,8 @@ class Display_Handler():
 
          
         self.display_hud() 
-        frame.render(self.clock)        
+        frame.render(self.clock)
+        frame.get_panel(self.meteor)        
 
 
     def display_hud(self):
