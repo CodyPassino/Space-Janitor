@@ -5,7 +5,6 @@ def main():
     display = Display_Handler()
     running = True
     
-    
     while running:
 
         # checks for quit event

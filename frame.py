@@ -83,7 +83,11 @@ def bg_loop(display, d_x, d_y):
                         smooth_panel_y = constants.SPACE_Y["STATION"]
 
                         if x_panel % constants.SPACE_X["PANEL_NUM"] == smooth_panel_x and y_panel % constants.SPACE_Y["PANEL_NUM"] == smooth_panel_y:
+                                display.view.append(display.station)
                                 setpos(display.screen, sprite_constants.STATION, new_x/constants.DELTA_TIME, new_y/constants.DELTA_TIME )
+                        elif display.station in display.view:
+                                # Not great but time rushed
+                                display.view.remove(display.station)
                                
 
 def zoom(screen, obj):
