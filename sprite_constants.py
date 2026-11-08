@@ -6,8 +6,10 @@ PATH_BACKGROUND = PATH_SPRITE + "backgrounds/"
 
 BG_1 = PATH_BACKGROUND + "background_1.png"
 
+#Debris 
+PATH_DEBRIS = PATH_SPRITE + "debris/"
     # Meteor
-PATH_METEOR = PATH_SPRITE + "meteor/"
+PATH_METEOR = PATH_DEBRIS + "meteor/"
         # Small
 PATH_SMALL_METEOR = PATH_METEOR + "small/"
             # Pieces
