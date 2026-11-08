@@ -19,12 +19,12 @@ class Display_Handler():
                 if event.type == pygame.QUIT:
                     running = False
 
-            self.screen.fill((0,0,0))
+            self.screen.fill((255,0,0))
             frame.move(self.screen, sprite, x *self.delta_time, y*self.delta_time)
 
             self.clock.tick(60)
             pygame.display.flip()
-            y += 1
+            y += 5
             
         pygame.quit()
 
