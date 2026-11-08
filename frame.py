@@ -37,11 +37,11 @@ def bg_loop(display, d_x, d_y):
         if abs(display.scroll_y) > bg_height:
                 display.scroll_y = 0
 
-        for x_panel, y_panel in zip(range(panels_x), range(panels_y)):
-                new_y = y_panel * bg_height + display.scroll_y - bg_height
+        for x_panel in (range(panels_x)):
                 new_x = x_panel * bg_width + display.scroll_x - bg_width
-
-                display.screen.blit(bg,(new_x, new_y))
+                for y_panel in (range(panels_y)):
+                        new_y = y_panel * bg_height + display.scroll_y - bg_height
+                        display.screen.blit(bg,(new_x, new_y))
         
 
         
