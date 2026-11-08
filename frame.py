@@ -82,3 +82,6 @@ def bg_loop(display, d_x, d_y):
 
         
                         
+
+def zoom(path, pos, distance):
+        
